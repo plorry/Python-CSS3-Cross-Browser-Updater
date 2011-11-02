@@ -1,4 +1,12 @@
 This is a python script that takes a css file as an argument and creates a cross-browser-compatible css file (in the same directory as the original).
 If you use a CSS3 element that is not cross-browser supported, this script will recognize it, and automatically fill in the code for all browser versions of the element name.
+Example:
+If your css file has a line:
+"border-radius:4px;"
+The outgoing file will have:
+"border-radius:4px;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;"
+If your file already contains cross-browser support, this script will create a lot of redundant lines. (So don't do that.)
 Presently it supports box-shadow, border-radius, transform and column-count.
 Soon I'll add support for linear and radial gradients.
