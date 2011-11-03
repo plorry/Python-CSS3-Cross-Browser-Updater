@@ -33,7 +33,9 @@ def cross_browser_css(filepath):
                                         css_element = words[1][:index+8]                # Set css element to the linear-gradient
                                         css_value = words[1][index+8:]                  # Set css value to the data after linear-gradient
                                         for d in CSS_GRADIENT:                          # Go through the CSS Gradient list and
-                                                n.write('   background-image: '+d+':'+css_value)        # Write a new line with each CSS gradient property
+                                                n.write('   background-image: '+d+css_value)        # Write a new line with each CSS gradient property
+                                else:
+                                        n.write(line.replace('\t','   '))               # Re-write the line if the background-image is not a gradient
                         else:
                                 for element in CSS_PROPERTIES:          # then checking against our properties list
                                         if css_element in element:              # to see if there's a match. If there is,
